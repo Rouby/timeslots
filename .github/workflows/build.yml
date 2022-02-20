@@ -14,10 +14,8 @@ jobs:
         with:
           node-version: "16.13.0"
       - run: yarn --immutable
-      - uses: cypress-io/github-action@v2
-        with:
-          install: false
-          command: yarn test run-ct
+      - run: yarn test
+      - run: yarn build
       - uses: actions/upload-artifact@v2
         if: always()
         with:
