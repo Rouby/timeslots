@@ -1,9 +1,11 @@
-import React from "react";
-
 export function DayOfWeek({ date }: { date: Date }) {
   const formatter = new Intl.DateTimeFormat(window.navigator.language, {
     weekday: "short",
   });
+
+  if (isNaN(date.getTime())) {
+    return <>N/A</>;
+  }
 
   return (
     <>

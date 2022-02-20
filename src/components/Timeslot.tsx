@@ -1,5 +1,3 @@
-import React from "react";
-
 export function Timeslot({
   startDate,
   endDate,
@@ -11,6 +9,10 @@ export function Timeslot({
     hour: "numeric",
     minute: "numeric",
   });
+
+  if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+    return <>N/A</>;
+  }
 
   return <>{formatter.formatRange(startDate, endDate)}</>;
 }
