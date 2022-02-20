@@ -21,7 +21,7 @@ export function Timeslots() {
       {data?.map(({ id, name }) => (
         <div key={id}>
           <h2>{name}</h2>
-          <div>
+          <div data-testid="reservation" data-company={id}>
             Reservation:{" "}
             {reservations[id] ? (
               <Timeslot
@@ -44,7 +44,7 @@ export function Timeslots() {
       >
         {data?.map(({ id, time_slots_by_day }) => (
           <Fragment key={id}>
-            <div>
+            <div data-testid="timeslots" data-company={id}>
               {Object.entries(time_slots_by_day).map(([day, time_slots]) => (
                 <div key={day}>
                   <h3 style={{ textAlign: "center" }}>
@@ -94,6 +94,7 @@ export function Timeslots() {
                             padding: 5,
                             margin: 5,
                           }}
+                          data-testid="timeslot"
                         >
                           <Timeslot startDate={start_time} endDate={end_time} />
                         </button>
