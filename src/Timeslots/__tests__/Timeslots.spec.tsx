@@ -34,13 +34,13 @@ describe("The timeslots", () => {
     );
 
     cy.get('[data-testid="timeslots"][data-company="1"]')
-      .contains('[data-testid="timeslot"]', "11:00–12:00")
+      .contains('[data-testid="timeslot"]', getSlotString(11, 0, 12, 0))
       .as("timeslot")
       .click();
 
     cy.get('[data-testid="reservation"][data-company="1"]').should(
       "contain",
-      "11:00–12:00"
+      getSlotString(11, 0, 12, 0)
     );
 
     cy.get("@timeslot").click();
@@ -59,21 +59,21 @@ describe("The timeslots", () => {
     );
 
     cy.get('[data-testid="timeslots"][data-company="1"]')
-      .contains('[data-testid="timeslot"]', "11:00–12:00")
+      .contains('[data-testid="timeslot"]', getSlotString(11, 0, 12, 0))
       .click();
 
     cy.get('[data-testid="reservation"][data-company="1"]').should(
       "contain",
-      "11:00–12:00"
+      getSlotString(11, 0, 12, 0)
     );
 
     cy.get('[data-testid="timeslots"][data-company="1"]')
-      .contains('[data-testid="timeslot"]', "11:30–12:30")
+      .contains('[data-testid="timeslot"]', getSlotString(11, 30, 12, 30))
       .click();
 
     cy.get('[data-testid="reservation"][data-company="1"]').should(
       "contain",
-      "11:30–12:30"
+      getSlotString(11, 30, 12, 30)
     );
   });
 
@@ -85,17 +85,32 @@ describe("The timeslots", () => {
     );
 
     cy.get('[data-testid="timeslots"][data-company="1"]')
-      .contains('[data-testid="timeslot"]', "11:00–12:00")
+      .contains('[data-testid="timeslot"]', getSlotString(11, 0, 12, 0))
       .click();
 
     cy.get('[data-testid="timeslots"][data-company="2"]')
-      .contains('[data-testid="timeslot"]', "11:00–12:00")
+      .contains('[data-testid="timeslot"]', getSlotString(11, 0, 12, 0))
       .should("be.disabled");
     cy.get('[data-testid="timeslots"][data-company="2"]')
-      .contains('[data-testid="timeslot"]', "11:30–12:30")
+      .contains('[data-testid="timeslot"]', getSlotString(11, 30, 12, 30))
       .should("be.disabled");
     cy.get('[data-testid="timeslots"][data-company="2"]')
-      .contains('[data-testid="timeslot"]', "14:00–16:00")
+      .contains('[data-testid="timeslot"]', getSlotString(14, 0, 16, 0))
       .should("not.be.disabled");
   });
 });
+
+function getSlotString(
+  hour1: number,
+  minutes1: number,
+  hour2: number,
+  minutes2: number
+) {
+  return new Intl.DateTimeFormat([], {
+    hour: "numeric",
+    minute: "numeric",
+  }).formatRange(
+    new Date(2022, 2, 20, hour1, minutes1, 0),
+    new Date(2022, 2, 20, hour2, minutes2, 0)
+  );
+}

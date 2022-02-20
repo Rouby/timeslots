@@ -10,7 +10,16 @@ describe("The timeslot for", () => {
       />
     );
 
-    cy.get("#__cy_root").should("contain", "10:00–11:00");
+    cy.get("#__cy_root").should(
+      "contain",
+      new Intl.DateTimeFormat([], {
+        hour: "numeric",
+        minute: "numeric",
+      }).formatRange(
+        new Date(2022, 2, 20, 10, 0, 0),
+        new Date(2022, 2, 20, 11, 0, 0)
+      )
+    );
   });
 
   it("some invalid dates should be N/A", () => {

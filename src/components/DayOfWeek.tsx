@@ -1,5 +1,5 @@
 export function DayOfWeek({ date }: { date: Date }) {
-  const formatter = new Intl.DateTimeFormat(window.navigator.language, {
+  const formatter = new Intl.DateTimeFormat([], {
     weekday: "short",
   });
 
