@@ -1,5 +1,7 @@
 # aroundhome
 
+Try the [live demo here](https://rouby.github.io/timeslots/).
+
 ## Install
 
 Requirements:

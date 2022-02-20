@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@cypress/react", "virtual:463ed4dd52804da694c832300b85601e75c9effc408f86475a3af0292bda4d13b2311a770a7d4bbac628cdcf4400d9fd33efc768104e0f012022eb9b527b1110#npm:5.12.3"],
             ["@cypress/vite-dev-server", "virtual:463ed4dd52804da694c832300b85601e75c9effc408f86475a3af0292bda4d13b2311a770a7d4bbac628cdcf4400d9fd33efc768104e0f012022eb9b527b1110#npm:2.2.2"],
+            ["@types/node", "npm:17.0.18"],
             ["@types/react", "npm:17.0.39"],
             ["@types/react-dom", "npm:17.0.11"],
             ["@vitejs/plugin-react", "npm:1.2.0"],
@@ -990,6 +991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["aroundhome", "workspace:."],
             ["@cypress/react", "virtual:463ed4dd52804da694c832300b85601e75c9effc408f86475a3af0292bda4d13b2311a770a7d4bbac628cdcf4400d9fd33efc768104e0f012022eb9b527b1110#npm:5.12.3"],
             ["@cypress/vite-dev-server", "virtual:463ed4dd52804da694c832300b85601e75c9effc408f86475a3af0292bda4d13b2311a770a7d4bbac628cdcf4400d9fd33efc768104e0f012022eb9b527b1110#npm:2.2.2"],
+            ["@types/node", "npm:17.0.18"],
             ["@types/react", "npm:17.0.39"],
             ["@types/react-dom", "npm:17.0.11"],
             ["@vitejs/plugin-react", "npm:1.2.0"],

@@ -16,6 +16,8 @@ jobs:
       - run: yarn --immutable
       - run: yarn test
       - run: yarn build
+        env:
+          BASE: "/timeslots/"
       - uses: actions/upload-artifact@v2
         if: always()
         with:

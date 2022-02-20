@@ -4,4 +4,5 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig((cfg) => ({
   plugins: [react()],
+  base: process.env.BASE,
 }));
